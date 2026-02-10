@@ -97,14 +97,20 @@ body {
 
 .sommaire-nav {
   list-style: none !important;
+  padding-left: 0 !important;
 }
 
 .sommaire-nav li {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 25px;
 }
 
 .sommaire-nav li:before {
-  content: "📄 " !important;
+  content: "📄";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .sommaire-nav a {
@@ -112,12 +118,13 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
-  display: inline-block;
+  display: block;
+  line-height: 1.4;
 }
 
 .sommaire-nav a:hover {
   color: #0066ff;
-  transform: translateX(5px);
+  transform: translateX(3px);
   text-decoration: underline;
 }
 
