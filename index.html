@@ -22,6 +22,11 @@ body {
   color: #1a1a1a;
   line-height: 1.6;
   background: #f8f9fa;
+  visibility: hidden;
+}
+
+body.authorized {
+  visibility: visible;
 }
 
 .page {
@@ -364,8 +369,12 @@ tbody tr:hover {
 (function() {
   const password = "liora2026";
   const userPassword = prompt("🔒 Mot de passe requis :");
-  if (userPassword !== password) {
-    document.body.innerHTML = "<div style='text-align:center; padding:50px; font-family:Arial;'><h1>❌ Accès refusé</h1></div>";
+
+  if (userPassword === password) {
+    document.body.classList.add('authorized');
+  } else {
+    document.body.style.visibility = 'visible';
+    document.body.innerHTML = "<div style='text-align:center; padding:50px; font-family:Arial; background:#f8f9fa; min-height:100vh; display:flex; align-items:center; justify-content:center;'><div><h1 style='color:#ff0000; font-size:48px;'>❌ Accès refusé</h1><p style='color:#666; margin-top:20px;'>Mot de passe incorrect</p></div></div>";
   }
 })();
 </script>
