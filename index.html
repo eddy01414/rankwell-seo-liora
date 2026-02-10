@@ -556,16 +556,22 @@ tbody tr:hover {
 <script>
 (function() {
   const password = "liora2026";
+
+  // Vider le body d'abord pour éviter tout affichage
+  const originalContent = document.body.innerHTML;
+
   const userPassword = prompt("🔒 Mot de passe requis :");
 
   if (userPassword === password) {
     document.body.classList.add('authorized');
   } else {
-    // Bloque l'accès si mot de passe incorrect ou annulé
+    // Bloque l'accès : vider le contenu puis afficher l'erreur
+    document.body.innerHTML = "";
     document.body.style.visibility = 'visible';
     document.body.style.overflow = 'hidden';
     document.body.innerHTML = "<div style='text-align:center; padding:50px; font-family:Arial; background:#f8f9fa; min-height:100vh; display:flex; align-items:center; justify-content:center;'><div><h1 style='color:#ff0000; font-size:48px;'>❌ Accès refusé</h1><p style='color:#666; margin-top:20px;'>Mot de passe incorrect ou annulé</p></div></div>";
-    // Empêche tout script ultérieur de s'exécuter
+    // Empêche définitivement toute tentative de contournement
+    window.stop();
     throw new Error("Access denied");
   }
 })();
