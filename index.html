@@ -312,6 +312,15 @@ tbody tr:hover {
 </style>
 </head>
 <body>
+<script>
+(function() {
+  const password = "liora2026";
+  const userPassword = prompt("🔒 Mot de passe requis :");
+  if (userPassword !== password) {
+    document.body.innerHTML = "<div style='text-align:center; padding:50px; font-family:Arial;'><h1>❌ Accès refusé</h1></div>";
+  }
+})();
+</script>
 
 <!-- PAGE 1 : COUVERTURE -->
 <div class="page">
